@@ -5,7 +5,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
 import { AppComponent } from './app.component';
 import { CustomProductCarouselComponent } from './custom-product-carousel/custom-product-carousel.component';
 import { CustomProductViewComponent } from './custom-product-view/custom-product-view.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -43,6 +43,7 @@ import { CustomProductViewComponent } from './custom-product-view/custom-product
       }
     }),
     BrowserTransferStateModule,
+    NgbModule
   ],
   entryComponents: [CustomProductCarouselComponent],
   providers: [],
