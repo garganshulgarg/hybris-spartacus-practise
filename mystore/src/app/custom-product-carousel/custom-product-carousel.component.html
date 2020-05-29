@@ -1,59 +1,22 @@
-<h2>{{ title }}</h2>
-<br />
 
-<app-custom-product-view *ngFor="let product of productCodes" [product]="product">
+<cx-carousel
+  [items]="items$ | async"
+  [title]="title$ | async"
+  [template]="carouselItem"
+  itemWidth="285px"
+>
+</cx-carousel>
 
-</app-custom-product-view>
+<ng-template #carouselItem let-item="item">
+  <a tabindex="0">
+    <cx-media
+      *ngIf="item.images?.PRIMARY"
+      [container]="item.images.PRIMARY"
+      format="product" class="product-carousel-img"
+    >
+    </cx-media>
 
-//dynamic carousel content is  not loading(commented code)
-
-<!--<div class='container-fluid'>
-
-    <div class='col-12'>
-        <ngb-carousel>
-        <app-custom-product-view *ngFor="let product of productCodes" [product]="product">
-
-        </app-custom-product-view>
-          </ngb-carousel>
-    </div>
-</div>-->
-
-//static carousel content is  loading
-<div class='container-fluid'>
-
-    <div class='col-12'>
-        <ngb-carousel>
-            <ng-template ngbSlide>
-                <img src="https://localhost:9002/medias/?context=bWFzdGVyfGltYWdlc3w3NDk2fGltYWdlL2pwZWd8aW1hZ2VzL2hmMy9oOTUvODc5NjIxMDUyODI4Ni5qcGd8OWZkMmI1YWRjZDA1Zjc0ZmE4NmM1NGJlODgxYjA3YzkzNjRhYTBlM2MyOWU0MTBiYzNhNTNiZGFmOTFiMTQ1YQ" alt="Delhi Metro">
-                <div class="carousel-caption">
-                    <h3 style="color: yellow">Delhi Metro</h3>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <img src="../assets/Images/m1.jpg" alt="Bangalore Metro">
-                <div class="carousel-caption">
-                    <h3 style="color: yellow">Bangalore Metro</h3>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <img src="../assets/Images/m4.jpg" alt="Channai Metro">
-                <div class="carousel-caption">
-                    <h3 style="color: yellow">Channai Metro</h3>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <img src="../assets/Images/m5.jpg" alt="Jaipur Metro">
-                <div class="carousel-caption">
-                    <h3 style="color: yellow">Jaipur Metro</h3>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <img src="../assets/Images/m3.jpg" alt="Mumbai Metro">
-                <div class="carousel-caption">
-                    <h3 style="color: yellow">Mumbai Metro</h3>
-                </div>
-            </ng-template>
-        </ngb-carousel>
-    </div>
-
-</div>
+    <h4>{{ item.name }}</h4>
+    <div class="price">{{ item.price?.formattedValue }}</div>
+  </a>
+</ng-template>

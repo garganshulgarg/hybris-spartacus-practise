@@ -1,10 +1,3 @@
 <li *ngIf="productData !== null && productData.url">
 	{{ productData.name }} - {{ productData.url }} - {{productData.images}}
 </li>
-
-<div ngbSlide *ngIf="productData !== null && productData.url">
-		<img src="{{productData.images.PRIMARY.product.url}}" alt="">
-		<div class="carousel-caption">
-				<a href="{{ productData.url }}">{{ productData.name }}</a>
-		</div>
-</div>
