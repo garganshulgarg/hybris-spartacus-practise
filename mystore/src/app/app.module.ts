@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { translationChunksConfig, translations } from '@spartacus/assets';
 import { B2cStorefrontModule, CarouselModule, MediaModule } from '@spartacus/storefront';
 import { AppComponent } from './app.component';
 import { CustomProductCarouselComponent } from './custom-product-carousel/custom-product-carousel.component';
 import { SpartacusHeroBannerComponent } from './spartacus-hero-banner/spartacus-hero-banner.component';
-
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { SpartacusHeroBannerComponent } from './spartacus-hero-banner/spartacus-
     }),
     BrowserTransferStateModule,
     MediaModule,
-    CarouselModule
+    CarouselModule,
+    RouterModule
   ],
   entryComponents: [CustomProductCarouselComponent,
     SpartacusHeroBannerComponent],
