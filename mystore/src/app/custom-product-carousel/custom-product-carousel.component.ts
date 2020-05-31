@@ -28,10 +28,10 @@ export class CustomProductCarouselComponent {
   );
 
   /**
-     * Obervable that holds an Array of Observables. This is done, so that
-     * the component UI could consider to lazy load the UI components when they're
-     * in the viewpoint.
-     */
+   * Obervable that holds an Array of Observables. This is done, so that
+   * the component UI could consider to lazy load the UI components when they're
+   * in the viewpoint.
+  */
   items$: Observable<Observable<Product>[]> = this.componentData$.pipe(
     map((data) => data.productCodes.trim().split(' ')),
     map((codes) =>
