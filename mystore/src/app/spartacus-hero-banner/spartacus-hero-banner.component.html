@@ -1,0 +1,4 @@
+<ng-container *ngIf="componentData$ | async as data">
+	<h1>{{ data.headline}}</h1>
+	<cx-media [container]="data.media"></cx-media>
+</ng-container>

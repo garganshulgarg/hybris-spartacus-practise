@@ -15,3 +15,9 @@ corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept author
 
 
 yarn start --ssl
+
+
+
+
+Command to generate component
+ng g c SpartacusHeroBannerComponent --module app
