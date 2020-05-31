@@ -1,4 +1,6 @@
-<ng-container *ngIf="componentData$ | async as data">
-	<h1>{{ data.headline}}</h1>
-	<cx-media [container]="data.media"></cx-media>
-</ng-container>
+<div class="container" *ngIf="componentData$ | async as data">
+	<a href="{{ data.urlLink}}">
+		<cx-media [container]="data.media"></cx-media>
+		<h1 class="centered">{{ data.headline}}</h1>
+	</a>
+</div>
