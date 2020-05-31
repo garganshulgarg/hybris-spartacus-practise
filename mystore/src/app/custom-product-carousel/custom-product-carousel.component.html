@@ -1,6 +1,14 @@
-<h2>{{ title }}</h2>
-<br />
+<cx-carousel [items]="items$ | async" [title]="title$ | async" [template]="carouselItem" itemWidth="285px">
+</cx-carousel>
 
-<app-custom-product-view *ngFor="let product of productCodes" [product]="product">
+<ng-template #carouselItem let-item="item">
+  <a tabindex="0">
+    <cx-media *ngIf="item.images?.PRIMARY" [container]="item.images.PRIMARY" format="product"
+      class="product-carousel-img">
+    </cx-media>
 
-</app-custom-product-view>
+    <h4>{{ item.name }}</h4>
+    <div class="price">{{ item.price?.formattedValue }}</div>
+  </a>
+
+</ng-template>
