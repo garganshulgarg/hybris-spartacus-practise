@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit, Input,Pipe,ChangeDetectionStrategy } from '@angular/core';
-import { Product, ProductService,ProductScope } from '@spartacus/core';
-import { CmsProductCarouselComponent as model } from '@spartacus/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CmsProductCarouselComponent as model, Product, ProductScope, ProductService } from '@spartacus/core';
 import { CmsComponentData } from '@spartacus/storefront';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
-import { take, distinctUntilChanged, tap, map, debounceTime, startWith, filter, switchMap, shareReplay, first, skipWhile, endWith, withLatestFrom, flatMap, observeOn, mergeMap, scan, distinctUntilKeyChanged, pluck } from 'rxjs/operators';
-//import { CustomProductViewComponent } from './custom-product-view/custom-product-view.component';
+import { filter, map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-custom-product-carousel',
   templateUrl: './custom-product-carousel.component.html',
@@ -13,11 +11,12 @@ import { take, distinctUntilChanged, tap, map, debounceTime, startWith, filter, 
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
-//export class CustomProductCarouselComponent implements OnInit, OnDestroy{
 export class CustomProductCarouselComponent {
-protected readonly PRODUCT_SCOPE = ProductScope.LIST;
-private componentData$: Observable<model> = this.componentData.data$.pipe(
-    filter(Boolean)
+  protected readonly PRODUCT_SCOPE = ProductScope.LIST;
+  private componentData$: Observable<model> = this.componentData.data$.pipe(
+    filter(data => {
+      return data.productCodes !== undefined;
+    })
   );
 
 
@@ -40,14 +39,13 @@ private componentData$: Observable<model> = this.componentData.data$.pipe(
     )
   );
 
-  constructor(
-      protected componentData: CmsComponentData<model>,
-      protected productService: ProductService,config: NgbCarouselConfig
-    )
-    {
 
-      console.log(this.title$);
-    }
+  constructor(
+    protected componentData: CmsComponentData<model>,
+    protected productService: ProductService
+  ) {
+
+  }
 
 
 

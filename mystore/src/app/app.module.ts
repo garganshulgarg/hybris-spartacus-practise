@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { translationChunksConfig, translations } from '@spartacus/assets';
-import { B2cStorefrontModule } from '@spartacus/storefront';
+import { B2cStorefrontModule, CarouselModule, MediaModule } from '@spartacus/storefront';
 import { AppComponent } from './app.component';
 import { CustomProductCarouselComponent } from './custom-product-carousel/custom-product-carousel.component';
 import { CustomProductViewComponent } from './custom-product-view/custom-product-view.component';
-import { CarouselComponent, CarouselModule, CarouselService,MediaComponent,MediaModule, MediaService,IconModule } from '@spartacus/storefront/fesm2015/spartacus-storefront';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';	
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +43,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     }),
     BrowserTransferStateModule,
     MediaModule,
-    CarouselModule,
-    IconModule,
-    NgbModule,
+    CarouselModule
   ],
   entryComponents: [CustomProductCarouselComponent],
   providers: [],
