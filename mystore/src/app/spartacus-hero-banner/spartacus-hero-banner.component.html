@@ -1,0 +1,6 @@
+<div class="container" *ngIf="componentData$ | async as data">
+	<a routerLink="{{ data.urlLink}}">
+		<cx-media [container]="data.media"></cx-media>
+		<h1 class="centered">{{ data.headline}}</h1>
+	</a>
+</div>
