@@ -48,7 +48,6 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
     }
   }
   customLogin() {
-    console.log(this.loginForm);
     const { userId, password } = this.loginForm.controls;
     this.auth.authorize(userId.value.toLowerCase(), password.value);
 

@@ -11,7 +11,6 @@ import { UrlModule } from "@spartacus/core";
 import {
   B2cStorefrontModule,
   CarouselModule,
-  LoginFormModule,
   MediaModule,
 } from "@spartacus/storefront";
 import { AppComponent } from "./app.component";
@@ -68,7 +67,6 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     FormsModule,
     ReactiveFormsModule,
     UrlModule,
-    LoginFormModule,
   ],
   entryComponents: [
     CustomProductCarouselComponent,
