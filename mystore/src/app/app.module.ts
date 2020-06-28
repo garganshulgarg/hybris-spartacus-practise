@@ -1,43 +1,52 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { translationChunksConfig, translations } from '@spartacus/assets';
-import { B2cStorefrontModule, CarouselModule, MediaModule} from '@spartacus/storefront';
-import { NavigationModule} from '@spartacus/storefront/fesm2015/spartacus-storefront';
-
-import { AppComponent } from './app.component';
-import { CustomProductCarouselComponent } from './custom-product-carousel/custom-product-carousel.component';
-import { SpartacusHeroBannerComponent } from './spartacus-hero-banner/spartacus-hero-banner.component';
-import { CustomCategoryNavigationComponent } from './custom-category-navigation/custom-category-navigation.component';
+import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import {
+  BrowserModule,
+  BrowserTransferStateModule,
+} from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
+import { translationChunksConfig, translations } from "@spartacus/assets";
+import { UrlModule } from "@spartacus/core";
+import {
+  B2cStorefrontModule,
+  CarouselModule,
+  MediaModule,
+} from "@spartacus/storefront";
+import { NavigationModule } from "@spartacus/storefront/fesm2015/spartacus-storefront";
+import { AppComponent } from "./app.component";
+import { CustomCategoryNavigationComponent } from "./custom-category-navigation/custom-category-navigation.component";
+import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
+import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
+import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
-    CustomCategoryNavigationComponent
+    CustomCategoryNavigationComponent,
+    CustomLoginFormComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: 'https://localhost:9002',
-          prefix: '/rest/v2/'
-        }
-
+          baseUrl: "https://localhost:9002",
+          prefix: "/rest/v2/",
+        },
       },
       context: {
-        baseSite: ['electronics-spa']
+        baseSite: ["electronics-spa"],
       },
       i18n: {
         resources: translations,
         chunks: translationChunksConfig,
-        fallbackLang: 'en'
+        fallbackLang: "en",
       },
       features: {
-        level: '1.5',
-        anonymousConsents: true
+        level: "1.5",
+        anonymousConsents: true,
       },
       cmsComponents: {
         SpartacusHeroBannerComponent: {
@@ -48,19 +57,28 @@ import { CustomCategoryNavigationComponent } from './custom-category-navigation/
         },
         CategoryNavigationComponent: {
           component: CustomCategoryNavigationComponent,
-        }
-
-      }
+        },
+        ReturningCustomerLoginComponent: {
+          //component name should be same as mentioned in the cms
+          component: CustomLoginFormComponent,
+        },
+      },
     }),
     BrowserTransferStateModule,
     MediaModule,
     CarouselModule,
     RouterModule,
-    NavigationModule
+    NavigationModule,
+    ReactiveFormsModule,
+    UrlModule,
   ],
-  entryComponents: [CustomProductCarouselComponent,
-    SpartacusHeroBannerComponent,CustomCategoryNavigationComponent],
+  entryComponents: [
+    CustomProductCarouselComponent,
+    SpartacusHeroBannerComponent,
+    CustomLoginFormComponent,
+    CustomCategoryNavigationComponent,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
