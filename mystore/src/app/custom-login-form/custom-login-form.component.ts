@@ -1,10 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {
   AuthRedirectService,
   AuthService,
@@ -17,7 +12,7 @@ import { Subscription } from "rxjs";
   selector: "login",
   templateUrl: "./custom-login-form.component.html",
 })
-export class CustomLoginFormComponent implements OnInit {
+export class CustomLoginFormComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   loginAsGuest = false;
   sub: Subscription;
@@ -25,7 +20,6 @@ export class CustomLoginFormComponent implements OnInit {
   constructor(
     protected auth: AuthService,
     protected globalMessageService: GlobalMessageService,
-    protected fb: FormBuilder,
     protected authRedirectService: AuthRedirectService
   ) {}
 
@@ -37,6 +31,12 @@ export class CustomLoginFormComponent implements OnInit {
       userId: new FormControl("", Validators.minLength(4)),
       password: new FormControl("", Validators.minLength(4)),
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   // Creating custom Login functionality to learn more about the same.
