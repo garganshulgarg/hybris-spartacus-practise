@@ -1,6 +1,5 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import {
   BrowserModule,
   BrowserTransferStateModule,
@@ -63,8 +62,6 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     MediaModule,
     CarouselModule,
     RouterModule,
-    CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     UrlModule,
   ],
