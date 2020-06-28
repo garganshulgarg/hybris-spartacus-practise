@@ -1,4 +1,3 @@
-
 <form (ngSubmit)="login()" [formGroup]="form">
   <div class="form-group">
     <label>
@@ -9,12 +8,17 @@
         formControlName="userId"
         placeholder="Email Address"
         required
-        [ngClass]="{'error': !form.get('userId').valid && form.get('userId').touched}"
+        [ngClass]="{
+          error: !form.get('userId').valid && form.get('userId').touched
+        }"
       />
-      <p class="form-error" *ngIf="!form.get('userId').valid && form.get('userId').touched">Please enter valid email address</p>
-
+      <p
+        class="form-error"
+        *ngIf="!form.get('userId').valid && form.get('userId').touched"
+      >
+        Please enter valid email address
+      </p>
     </label>
-
   </div>
   <div class="form-group">
     <label>
@@ -25,11 +29,16 @@
         placeholder="Password"
         formControlName="password"
         required
-        [ngClass]="{'error': !form.get('password').valid && form.get('password').touched}"
-
+        [ngClass]="{
+          error: !form.get('password').valid && form.get('password').touched
+        }"
       />
-      <p class="form-error" *ngIf="!form.get('password').valid && form.get('password').touched">Please enter valid password</p>
-
+      <p
+        class="form-error"
+        *ngIf="!form.get('password').valid && form.get('password').touched"
+      >
+        Please enter valid password
+      </p>
     </label>
   </div>
   <p>

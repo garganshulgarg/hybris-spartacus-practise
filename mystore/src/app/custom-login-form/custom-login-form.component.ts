@@ -1,43 +1,59 @@
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import {
+  AuthRedirectService,
+  AuthService,
+  GlobalMessageService,
+  WindowRef,
+} from "@spartacus/core";
+import {
+  CheckoutConfigService,
+  LoginFormComponent,
+} from "@spartacus/storefront";
+import { Subscription } from "rxjs";
 
-import { Component,ViewChild,OnInit} from '@angular/core';
-import { FormBuilder, Validators,FormGroup,NgForm,FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { AuthRedirectService, AuthService, GlobalMessageService, GlobalMessageType, WindowRef, } from '@spartacus/core';
-import { Subscription } from 'rxjs';
-import { CheckoutConfigService,LoginFormComponent,CustomFormValidators} from '@spartacus/storefront/fesm2015/spartacus-storefront';
 @Component({
-  selector: 'login',
-  templateUrl: './custom-login-form.component.html',
+  selector: "login",
+  templateUrl: "./custom-login-form.component.html",
 })
-export class CustomLoginFormComponent extends LoginFormComponent implements OnInit {
-sub: Subscription;
-  form: FormGroup;
+export class CustomLoginFormComponent extends LoginFormComponent
+  implements OnInit {
+  sub: Subscription;
   loginAsGuest = false;
 
   constructor(
-    protected auth: AuthService,
-    protected globalMessageService: GlobalMessageService,
-    protected fb: FormBuilder,
-    protected authRedirectService: AuthRedirectService,
-    protected winRef: WindowRef,
-    protected activatedRoute: ActivatedRoute
+    auth: AuthService,
+    globalMessageService: GlobalMessageService,
+    fb: FormBuilder,
+    authRedirectService: AuthRedirectService,
+    winRef: WindowRef, // tslint:disable-line,
+    activatedRoute: ActivatedRoute,
+    checkoutConfigService: CheckoutConfigService
   ) {
-    super( AuthService,
-      GlobalMessageService,
-      FormBuilder,
-      AuthRedirectService,
-      WindowRef,
-      ActivatedRoute)
+    super(
+      auth,
+      globalMessageService,
+      fb,
+      authRedirectService,
+      winRef,
+      activatedRoute,
+      checkoutConfigService
+    );
   }
-ngOnInit(){
-  this.form=new FormGroup({
-    'userId':new FormControl('', Validators.minLength(4)),
-    'password':new FormControl('', Validators.minLength(4))
-  })
 
-
+  /*
+  This step is only performed to override the exiting form valition present in LoginFormComponent
+  */
+  ngOnInit() {
+    this.form = new FormGroup({
+      userId: new FormControl("", Validators.minLength(4)),
+      password: new FormControl("", Validators.minLength(4)),
+    });
+  }
 }
-
-
-
-  }
