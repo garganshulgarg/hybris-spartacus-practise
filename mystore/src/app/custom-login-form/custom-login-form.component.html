@@ -1,4 +1,4 @@
-<form (ngSubmit)="login()" [formGroup]="form">
+<form (ngSubmit)="submitCustomLoginForm()" [formGroup]="loginForm">
   <div class="form-group">
     <label>
       <span class="label-content">Email Address</span>
@@ -9,12 +9,15 @@
         placeholder="Email Address"
         required
         [ngClass]="{
-          error: !form.get('userId').valid && form.get('userId').touched
+          error:
+            !loginForm.get('userId').valid && loginForm.get('userId').touched
         }"
       />
       <p
         class="form-error"
-        *ngIf="!form.get('userId').valid && form.get('userId').touched"
+        *ngIf="
+          !loginForm.get('userId').valid && loginForm.get('userId').touched
+        "
       >
         Please enter valid email address
       </p>
@@ -30,12 +33,16 @@
         formControlName="password"
         required
         [ngClass]="{
-          error: !form.get('password').valid && form.get('password').touched
+          error:
+            !loginForm.get('password').valid &&
+            loginForm.get('password').touched
         }"
       />
       <p
         class="form-error"
-        *ngIf="!form.get('password').valid && form.get('password').touched"
+        *ngIf="
+          !loginForm.get('password').valid && loginForm.get('password').touched
+        "
       >
         Please enter valid password
       </p>
