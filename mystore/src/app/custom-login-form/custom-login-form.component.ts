@@ -5,18 +5,12 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
 import {
   AuthRedirectService,
   AuthService,
   GlobalMessageService,
-  WindowRef,
 } from "@spartacus/core";
-import {
-  CheckoutConfigService,
-  LoginFormComponent,
-} from "@spartacus/storefront";
-import { Subscription } from "rxjs";
+import { LoginFormComponent } from "@spartacus/storefront";
 
 @Component({
   selector: "login",
@@ -24,27 +18,15 @@ import { Subscription } from "rxjs";
 })
 export class CustomLoginFormComponent extends LoginFormComponent
   implements OnInit {
-  sub: Subscription;
   loginAsGuest = false;
 
   constructor(
     auth: AuthService,
     globalMessageService: GlobalMessageService,
     fb: FormBuilder,
-    authRedirectService: AuthRedirectService,
-    winRef: WindowRef, // tslint:disable-line,
-    activatedRoute: ActivatedRoute,
-    checkoutConfigService: CheckoutConfigService
+    authRedirectService: AuthRedirectService
   ) {
-    super(
-      auth,
-      globalMessageService,
-      fb,
-      authRedirectService,
-      winRef,
-      activatedRoute,
-      checkoutConfigService
-    );
+    super(auth, globalMessageService, fb, authRedirectService);
   }
 
   /*
