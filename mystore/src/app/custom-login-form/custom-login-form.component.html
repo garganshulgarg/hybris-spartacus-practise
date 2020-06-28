@@ -16,10 +16,30 @@
       <p
         class="form-error"
         *ngIf="
-          !loginForm.get('userId').valid && loginForm.get('userId').touched
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['required'] &&
+          loginForm.get('userId').touched
         "
       >
-        Please enter valid email address
+        Email address is mandatory
+      </p>
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['email']
+        "
+      >
+        Incorrect email format
+      </p>
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['nameIsForbidden']
+        "
+      >
+        User ID should not contain following text [{{ forbiddenUsers }}]
       </p>
     </label>
   </div>

@@ -16,7 +16,7 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   loginAsGuest = false;
   sub: Subscription;
-
+  forbiddenUsers = ["check", "validate"];
   constructor(
     protected auth: AuthService,
     protected globalMessageService: GlobalMessageService,
@@ -28,8 +28,12 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
   */
   ngOnInit() {
     this.loginForm = new FormGroup({
-      userId: new FormControl("", Validators.minLength(4)),
-      password: new FormControl("", Validators.minLength(4)),
+      userId: new FormControl("", [
+        Validators.required,
+        Validators.email,
+        this.forbiddenUserIds.bind(this),
+      ]),
+      password: new FormControl("", Validators.required),
     });
   }
 
@@ -37,6 +41,17 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
     if (this.sub) {
       this.sub.unsubscribe();
     }
+  }
+
+  // Creating custom validators
+  forbiddenUserIds(control: FormControl): { [s: string]: boolean } {
+    for (var forbiddenUser of this.forbiddenUsers) {
+      if (control.value.includes(forbiddenUser)) {
+        console.log("Validator1");
+        return { nameIsForbidden: true };
+      }
+    }
+    return null;
   }
 
   // Creating custom Login functionality to learn more about the same.
