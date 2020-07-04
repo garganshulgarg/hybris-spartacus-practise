@@ -11,8 +11,8 @@ import {
   B2cStorefrontModule,
   CarouselModule,
   MediaModule,
+  NavigationModule,
 } from "@spartacus/storefront";
-import { NavigationModule } from "@spartacus/storefront/fesm2015/spartacus-storefront";
 import { AppComponent } from "./app.component";
 import { CustomCategoryNavigationComponent } from "./custom-category-navigation/custom-category-navigation.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
