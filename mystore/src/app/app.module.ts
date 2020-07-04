@@ -6,16 +6,19 @@ import {
 } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { translationChunksConfig, translations } from "@spartacus/assets";
-import { UrlModule } from "@spartacus/core";
+import { I18nModule, UrlModule } from "@spartacus/core";
 import {
   B2cStorefrontModule,
   CarouselModule,
+  GenericLinkModule,
+  IconModule,
   MediaModule,
   NavigationModule,
 } from "@spartacus/storefront";
 import { AppComponent } from "./app.component";
 import { CustomCategoryNavigationComponent } from "./custom-category-navigation/custom-category-navigation.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
+import { CustomNavigationUIComponentComponent } from "./custom-navigation-uicomponent/custom-navigation-uicomponent.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
 
@@ -26,6 +29,7 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     SpartacusHeroBannerComponent,
     CustomCategoryNavigationComponent,
     CustomLoginFormComponent,
+    CustomNavigationUIComponentComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -58,6 +62,9 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
         CategoryNavigationComponent: {
           component: CustomCategoryNavigationComponent,
         },
+        NavigationUIComponent: {
+          component: CustomNavigationUIComponentComponent,
+        },
         ReturningCustomerLoginComponent: {
           //component name should be same as mentioned in the cms
           component: CustomLoginFormComponent,
@@ -71,12 +78,16 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     NavigationModule,
     ReactiveFormsModule,
     UrlModule,
+    IconModule,
+    GenericLinkModule,
+    I18nModule,
   ],
   entryComponents: [
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
     CustomLoginFormComponent,
     CustomCategoryNavigationComponent,
+    CustomNavigationUIComponentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
