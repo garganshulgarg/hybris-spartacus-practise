@@ -1,3 +1,4 @@
+<div class="nav-container">
 <div
   *ngIf="flyout && node?.children.length > 1"
   class="back is-open"
@@ -15,6 +16,7 @@
 </ng-container>
 
 <!-- we generate links in a recursive manner -->
+
 <ng-template #nav let-node="node" let-depth="depth">
   <nav
     (click)="toggleOpen($event)"
@@ -29,11 +31,12 @@
       "
       [url]="node.url"
       [target]="node.target"
+      class="nav-item"
     >
       {{ node.title }}
       <cx-icon
         *ngIf="flyout && node.children?.length > 0"
-        [type]="iconType.CARET_DOWN"
+        [type]="iconType.CARET_DOWN" class="arrow-down"
       ></cx-icon>
     </cx-generic-link>
 
@@ -45,7 +48,7 @@
         {{ node.title }}
         <cx-icon
           *ngIf="flyout && node.children?.length > 0"
-          [type]="iconType.CARET_DOWN"
+          [type]="iconType.CARET_DOWN" class="arrow-down"
         ></cx-icon>
       </h5>
     </ng-template>
@@ -76,3 +79,4 @@
     </div>
   </nav>
 </ng-template>
+</div>

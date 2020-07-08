@@ -1,0 +1,54 @@
+.nav-container {
+  display: flex;
+  nav {
+    cursor: pointer;
+    padding-right: 20px;
+  }
+  nav:hover {
+    .wrapper {
+      visibility: visible;
+    }
+  }
+  h5 {
+    display: flex;
+    margin-top: 3px;
+    padding: 20px 15px 25px 0;
+    align-items: center;
+    white-space: nowrap;
+    outline: none;
+  }
+  cx-generic-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: currentColor;
+    padding: 10px 0;
+    a {
+      color: black;
+    }
+  }
+  .nav-item {
+    a {
+      padding-top: 10px;
+    padding-right: 20px;
+    color: white;
+    }
+  }
+  .childs {
+    display: flex;
+  }
+  .childs nav:not(:last-child) {
+    padding-right: 20px;
+  }
+  .arrow-down {
+    padding-left: 12px;
+  }
+  .wrapper {
+    position: absolute;
+    visibility: hidden;
+    padding: 15px 20px;
+    background: #fff;
+    z-index: 20;
+    color: #000;
+  }
+}
