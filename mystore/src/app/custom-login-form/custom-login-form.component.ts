@@ -34,6 +34,8 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
         this.forbiddenUserIds.bind(this),
       ]),
       password: new FormControl("", Validators.required),
+      phoneNumber: new FormControl("", Validators.required),
+      name: new FormControl("", Validators.required),
     });
   }
 
