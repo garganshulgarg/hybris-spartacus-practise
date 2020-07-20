@@ -4,19 +4,29 @@
     cursor: pointer;
     padding-right: 20px;
   }
-  nav:hover {
+  > nav:hover {
     .wrapper {
       visibility: visible;
     }
   }
-  h5 {
-    display: flex;
+
+  > nav > h5 {
     margin-top: 3px;
     padding: 20px 15px 25px 0;
+  }
+  nav h5 {
+    display: flex;
     align-items: center;
     white-space: nowrap;
     outline: none;
   }
+  nav > div > cx-generic-link {
+    padding: 10px 0;
+  }
+  a {
+    color: currentColor;
+  }
+
   cx-generic-link {
     display: flex;
     align-items: center;
@@ -27,11 +37,13 @@
       color: black;
     }
   }
+  > cx-generic-link a{
+    color: black;
+  }
   .nav-item {
     a {
       padding-top: 10px;
-    padding-right: 20px;
-    color: white;
+      padding-right: 20px;
     }
   }
   .childs {
@@ -40,15 +52,21 @@
   .childs nav:not(:last-child) {
     padding-right: 20px;
   }
+  .childs[depth="1"] {
+    flex-direction: column;
+  }
   .arrow-down {
     padding-left: 12px;
   }
-  .wrapper {
+  > nav > .wrapper {
     position: absolute;
     visibility: hidden;
     padding: 15px 20px;
     background: #fff;
     z-index: 20;
     color: #000;
+  }
+  > nav > cx-generic-link a {
+    color: white;
   }
 }

@@ -1,14 +1,5 @@
 <div class="nav-container">
-<div
-  *ngIf="flyout && node?.children.length > 1"
-  class="back is-open"
-  (click)="back()"
->
-  <h5>
-    <cx-icon [type]="iconType.CARET_LEFT"></cx-icon>
-    {{ "common.back" | cxTranslate }}
-  </h5>
-</div>
+
 
 <ng-container *ngFor="let child of node?.children">
   <ng-container *ngTemplateOutlet="nav; context: { node: child, depth: 0 }">
