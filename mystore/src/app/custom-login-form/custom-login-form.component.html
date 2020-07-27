@@ -121,6 +121,7 @@
   <p>
     <a
       [routerLink]="{ cxRoute: 'forgotPassword' } | cxUrl"
+
       aria-controls="reset-password"
       class="btn-link"
       >Forgot password</a
@@ -152,4 +153,15 @@
       >Guest checkout</a
     >
   </ng-container>
+</div>
+
+<!---router example-->
+<h1>{{title}}</h1>
+<nav [ngClass] = "'menu'">
+   <a routerLink="/customRegister">Register</a> | <!--in ts this.router.navigate(['/customRegister']);-->
+   <a routerLink="/login" routerLinkActive="active-link">login</a> |
+   <div (click)="goToLink()">guest</div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
 </div>

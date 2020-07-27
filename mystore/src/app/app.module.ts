@@ -65,6 +65,19 @@ import { CustomRegisterComponent } from "./custom-register-component/custom-regi
       },
     }),
     BrowserTransferStateModule,
+    RouterModule.forRoot([
+		  {
+			path: 'customRegister',
+			component: CustomRegisterComponent
+		  },
+
+
+		  {
+		    path: '',
+		    redirectTo: '/',
+		    pathMatch: 'full'
+		  }
+		]),
     MediaModule,
     CarouselModule,
     RouterModule,

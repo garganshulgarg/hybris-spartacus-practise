@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import {
   AuthRedirectService,
   AuthService,
@@ -18,6 +19,7 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
   sub: Subscription;
   forbiddenUsers = ["check", "validate"];
   constructor(
+    private router: Router,
     protected auth: AuthService,
     protected globalMessageService: GlobalMessageService,
     protected authRedirectService: AuthRedirectService
@@ -76,5 +78,8 @@ export class CustomLoginFormComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+  goToLink(){
+    this.router.navigate(['/login/register']);
   }
 }
