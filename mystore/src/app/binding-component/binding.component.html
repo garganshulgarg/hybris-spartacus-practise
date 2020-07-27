@@ -1,0 +1,67 @@
+<!-- hit localhost:4200/binding in browser to get this page --->
+<!-- import formModule in app.module.ts-->
+<!-- $ used to fetch the event data -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <br />
+
+      <h2 class="text-center">Two way binding in textbox</h2>
+      <hr />
+      <div class="col-4">
+        <label for="" class="form-label">UserName:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="userName"
+          (input)="inputChange($event)"
+        />
+
+        <br />
+      </div>
+      <br />
+      <p>fetch data from Two way binding:{{ userName }}</p>
+      <p>fetch data from typescript:{{ userId }}</p>
+      <br />
+      <!------------------------------------------------------------------->
+      <h2 class="text-center">Two way binding in select box</h2>
+      <hr />
+      <!--select  [value] ="myColor" (change)="myColor=$event.target.value" -->
+      <div class="col-4">
+        <select [(ngModel)]="myColor" class="form-control">
+          <option *ngFor="let color of Colors" [value]="color">
+            {{ color }}
+          </option>
+        </select>
+
+        <span [style.color]="myColor">Hello World!</span>--------Attribute
+        binding
+        <!-- attribute binding-->
+      </div>
+      <br />
+      <!------------------------------------------------------------------->
+      <!-- property binding--->
+      <h2 class="text-center">Property binding in button</h2>
+      <hr />
+      <span style="cursor: pointer;" (click)="btnStateChange(false)">
+        enable&nbsp;
+      </span>
+      <span style="cursor: pointer;" (click)="btnStateChange(true)">
+        disable </span
+      ><br /><br />
+      <button class="btn btn-success" [disabled]="btnState">Button</button>
+      <br />
+      <!------------------------------------------------------------------->
+      <!-- class binding--->
+      <h2 class="text-center">Class binding</h2>
+      <hr />
+      <div style="cursor: pointer;" (click)="textColorChange()">
+        change below text color
+      </div>
+      <div [class.required]="isReq">
+        <h3>Hello world</h3>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
