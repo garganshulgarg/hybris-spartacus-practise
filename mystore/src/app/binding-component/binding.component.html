@@ -62,6 +62,9 @@
         <h3>Hello world</h3>
       </div>
       <br />
+      <!------------------------------------------------------------------->
+      <event-emit (valueChange)="displayCounter($event)"></event-emit>
+      <p>{{ clickCount }}</p>
     </div>
   </div>
 </div>

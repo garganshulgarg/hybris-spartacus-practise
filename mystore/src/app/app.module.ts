@@ -15,6 +15,7 @@ import { AppComponent } from "./app.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
 import { BindingComponent } from "./binding-component/binding.component";
+import { EventEmitComponent } from "./binding-component/event-emit/event-emit.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BindingComponent } from "./binding-component/binding.component";
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
     BindingComponent,
+    EventEmitComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
