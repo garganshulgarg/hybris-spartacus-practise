@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import {
   BrowserModule,
@@ -16,6 +17,12 @@ import { AppComponent } from "./app.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
+import { DirectivesComponent } from "./directives/directives.component";
+import { DelayDirective } from "./directives/structural-directives/structural-delay-directive";
+import { StyleDirectives } from "./directives/attribute-directives/style-directives";
+import { MouseActionDirective } from "./directives/attribute-directives/action-directive";
+import { NgDirectivesComponent } from "./directives/ng-directives/ng-directives.component";
+import { EmpComponent } from "./directives/ng-directives/emp.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +30,12 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
     CustomLoginFormComponent,
+    DirectivesComponent,
+    DelayDirective,
+    StyleDirectives,
+    MouseActionDirective,
+    NgDirectivesComponent,
+    EmpComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -59,11 +72,25 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
       },
     }),
     BrowserTransferStateModule,
+    RouterModule.forRoot([
+      //register route component
+      {
+        path: "directives", // url will be 'https://localhost:4200/directives'
+        component: DirectivesComponent,
+      },
+
+      {
+        path: "",
+        redirectTo: "/",
+        pathMatch: "full",
+      },
+    ]),
     MediaModule,
     CarouselModule,
     RouterModule,
     ReactiveFormsModule,
     UrlModule,
+    FormsModule,
   ],
   entryComponents: [
     CustomProductCarouselComponent,
