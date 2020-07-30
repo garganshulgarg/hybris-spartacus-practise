@@ -23,6 +23,8 @@ import { FavouriteFriendsComponent } from "./decorators/content-child/fav-friend
 import { FavouriteCitiesComponent } from "./decorators/content-child/fav-cities.component";
 import { CityComponent } from "./decorators/content-child/city.component";
 import { WriterComponent } from "./decorators/view-child/writer.component";
+import { ChildComponent } from "./decorators/input-output/child.component";
+import { ParentComponent } from "./decorators/input-output/parent.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { WriterComponent } from "./decorators/view-child/writer.component";
     FavouriteFriendsComponent,
     FavouriteCitiesComponent,
     CityComponent,
+    ChildComponent,
+    ParentComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
