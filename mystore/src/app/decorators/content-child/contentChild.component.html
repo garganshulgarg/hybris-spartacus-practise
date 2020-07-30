@@ -1,0 +1,30 @@
+<br />
+<h2>@ContentChildren using ElementRef</h2>
+<favourite-friends>
+  <div #name>Mohit</div>
+  <div #name>Anup</div>
+  <div #name *ngIf="showAllFriend">Nilesh</div>
+  <div #name *ngIf="showAllFriend">Sravan</div>
+</favourite-friends>
+<br /><br /><button class="btn btn-primary" (click)="onShowAllFriends()">
+  <label *ngIf="!showAllFriend">Show More</label>
+  <label *ngIf="showAllFriend">Show Less</label>
+</button>
+<hr />
+
+<h2>@ContentChildren using Component</h2>
+<favourite-cities>
+  <city cityId="1" cityName="Noida"></city>
+  <city cityId="2" cityName="Mumbai"></city>
+  <favourite-cities>
+    <city cityId="3" cityName="Gurugram"></city>
+  </favourite-cities>
+  <favourite-cities *ngIf="showAllCity">
+    <city cityId="4" cityName="New Delhi"></city>
+    <city cityId="5" cityName="Bengaluru"></city>
+  </favourite-cities>
+</favourite-cities>
+<br /><br /><button class="btn btn-primary" (click)="onShowAllCities()">
+  <label *ngIf="!showAllCity">Show More</label>
+  <label *ngIf="showAllCity">Show Less</label>
+</button>
