@@ -16,6 +16,15 @@ import { AppComponent } from "./app.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
+import { DecoratorsComponent } from "./decorators/decorators.component";
+import { ViewChildComponent } from "./decorators/view-child/viewChild.component";
+import { ContentChildComponent } from "./decorators/content-child/contentChild.component";
+import { FavouriteFriendsComponent } from "./decorators/content-child/fav-friends.component";
+import { FavouriteCitiesComponent } from "./decorators/content-child/fav-cities.component";
+import { CityComponent } from "./decorators/content-child/city.component";
+import { WriterComponent } from "./decorators/view-child/writer.component";
+import { ChildComponent } from "./decorators/input-output/child.component";
+import { ParentComponent } from "./decorators/input-output/parent.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +32,15 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
     CustomLoginFormComponent,
+    DecoratorsComponent,
+    ViewChildComponent,
+    WriterComponent,
+    ContentChildComponent,
+    FavouriteFriendsComponent,
+    FavouriteCitiesComponent,
+    CityComponent,
+    ChildComponent,
+    ParentComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -59,6 +77,19 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
       },
     }),
     BrowserTransferStateModule,
+    RouterModule.forRoot([
+      //register route component
+      {
+        path: "decorators", // url '/decorators'
+        component: DecoratorsComponent,
+      },
+
+      {
+        path: "",
+        redirectTo: "/",
+        pathMatch: "full",
+      },
+    ]),
     MediaModule,
     CarouselModule,
     RouterModule,
