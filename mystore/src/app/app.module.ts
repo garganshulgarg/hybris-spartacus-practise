@@ -16,6 +16,7 @@ import { AppComponent } from "./app.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
+import { PipesComponent } from "./pipes/pipes.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     CustomProductCarouselComponent,
     SpartacusHeroBannerComponent,
     CustomLoginFormComponent,
+    PipesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -59,6 +61,19 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
       },
     }),
     BrowserTransferStateModule,
+    RouterModule.forRoot([
+      //register route component
+      {
+        path: "pipes", // url '/binding'
+        component: PipesComponent,
+      },
+
+      {
+        path: "",
+        redirectTo: "/",
+        pathMatch: "full",
+      },
+    ]),
     MediaModule,
     CarouselModule,
     RouterModule,
