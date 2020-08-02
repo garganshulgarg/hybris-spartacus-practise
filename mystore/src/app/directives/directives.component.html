@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-ng-directives></app-ng-directives>
+
+      <!-- attribute directive-->
+      <br />
+      <h2 class="text-center">Attribute Directive</h2>
+      <br />
+      <p color inputColor="blue" mouseAction>myBlue Directive Demo</p>
+      <hr />
+      <!-- attribute directive ends-->
+
+      <!-- structuaral directive-->
+      <h2 class="text-center">Structural Directive</h2>
+      <div class="col-8">
+        Show message after<br />
+        <input type="radio" name="rad2" (click)="delayInSec = 2000" /> &nbsp; 2
+        Seconds <br /><input
+          type="radio"
+          name="rad2"
+          (click)="delayInSec = 5000"
+        />
+        &nbsp;5 Seconds <br /><input
+          type="radio"
+          name="rad2"
+          (click)="delayInSec = 7000"
+        />
+        &nbsp;7 Seconds
+      </div>
+      <br />
+      <div *cDelay="delayInSec">
+        <b> Hello Delay Directive. </b>
+      </div>
+
+      <!-- structuaral directive ends-->
+    </div>
+  </div>
+</div>

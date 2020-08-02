@@ -1,0 +1,6 @@
+<app-custom-navigation-uicomponent
+  *ngIf="data$ | async as data"
+  [node]="node$ | async"
+  [ngClass]="data.styleClass"
+  [wrapAfter]="data.wrapAfter"
+></app-custom-navigation-uicomponent>

@@ -1,10 +1,10 @@
 import {
-  Component,
-  ViewChildren,
   AfterViewInit,
-  ViewContainerRef,
-  QueryList,
+  Component,
   ElementRef,
+  QueryList,
+  ViewChildren,
+  ViewContainerRef,
 } from "@angular/core";
 import { WriterComponent } from "./writer.component";
 
