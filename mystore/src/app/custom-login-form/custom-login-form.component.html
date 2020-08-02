@@ -1,0 +1,105 @@
+<form (ngSubmit)="submitCustomLoginForm()" [formGroup]="loginForm">
+  <div class="form-group">
+    <label>
+      <span class="label-content">Email Address</span>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="userId"
+        placeholder="Email Address"
+        required
+        [ngClass]="{
+          error:
+            !loginForm.get('userId').valid && loginForm.get('userId').touched
+        }"
+      />
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['required'] &&
+          loginForm.get('userId').touched
+        "
+      >
+        Email address is mandatory
+      </p>
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['email']
+        "
+      >
+        Incorrect email format
+      </p>
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('userId').valid &&
+          loginForm.get('userId').errors['nameIsForbidden']
+        "
+      >
+        User ID should not contain following text [{{ forbiddenUsers }}]
+      </p>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="label-content">Password</span>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        formControlName="password"
+        required
+        [ngClass]="{
+          error:
+            !loginForm.get('password').valid &&
+            loginForm.get('password').touched
+        }"
+      />
+      <p
+        class="form-error"
+        *ngIf="
+          !loginForm.get('password').valid && loginForm.get('password').touched
+        "
+      >
+        Please enter valid password
+      </p>
+    </label>
+  </div>
+  <p>
+    <a
+      [routerLink]="{ cxRoute: 'forgotPassword' } | cxUrl"
+      aria-controls="reset-password"
+      class="btn-link"
+      >Forgot password</a
+    >
+  </p>
+
+  <button type="submit" class="btn btn-block btn-primary">
+    Signin
+  </button>
+</form>
+
+<div class="register">
+  <p class="cx-section-title">
+    Don't you have account
+  </p>
+
+  <ng-container *ngIf="!loginAsGuest">
+    <a
+      [routerLink]="{ cxRoute: 'register' } | cxUrl"
+      class="btn btn-block btn-secondary btn-register"
+      >Register</a
+    >
+  </ng-container>
+
+  <ng-container *ngIf="loginAsGuest">
+    <a
+      [routerLink]="{ cxRoute: 'checkoutLogin' } | cxUrl"
+      class="btn btn-block btn-secondary btn-guest"
+      >Guest checkout</a
+    >
+  </ng-container>
+</div>
