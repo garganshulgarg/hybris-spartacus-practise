@@ -1,0 +1,78 @@
+<!-- IF ELSE SECTION-->
+<div class="if-else-container col-8">
+  <br />
+  <h2 class="text-center">Using NgIf with Else</h2>
+  <br />
+  <b>Example-1:</b><br />
+  <div>
+    <div class="col-2">
+      <input type="radio" name="rad2" (click)="changeValue(true)" />
+      <label>&nbsp; True</label>
+    </div>
+
+    <div class="col-2">
+      <input type="radio" name="rad2" (click)="changeValue(false)" />
+      <label>&nbsp; False</label>
+    </div>
+  </div>
+  <div *ngIf="isValid; else elseBlock">
+    <b>Data is valid.</b>
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      <b>Data is invalid.</b>
+    </div>
+  </ng-template>
+
+  <br /><b>Example-2:</b><br />
+  <div>Enter Age: <input type="text" [(ngModel)]="age" /></div>
+
+  <div *ngIf="age < 18; else elseAgeBlock">
+    <b>Not eligible to vote.</b>
+  </div>
+  <ng-template #elseAgeBlock>
+    <b>Eligible to vote.</b>
+  </ng-template>
+</div>
+<!----------------------------- IF ELSE SECTION ENDS----------------------------->
+<hr />
+<!----------------------------- SWITCH SECTION -------------------------------->
+<div class="switch-container col-8">
+  <br />
+  <h2 class="text-center">Using NgSwitch</h2>
+  <br />
+  <div *ngFor="let num of nums">
+    num is {{ num }}
+    <div ngSwitch="{{ num % 2 }}">
+      <div *ngSwitchCase="'0'" [ngClass]="'one'">I am Even.</div>
+      <div *ngSwitchCase="'1'" [ngClass]="'two'">I am Odd.</div>
+      <div *ngSwitchDefault>Nothing Found.</div>
+    </div>
+  </div>
+</div>
+
+<!----------------------------- SWITCH SECTION ENDS----------------------------->
+<hr />
+<!----------------------------- NGFOR SECTION -------------------------------->
+<div class="ngfor-container col-8">
+  <br />
+  <h2 class="text-center">Using NgFor</h2>
+  <br />
+  <b>first and last variable demo </b>
+  <div *ngFor="let car of cars; let i = index; let f = first; let l = last">
+    Row {{ i }} : Name: {{ car.name }}, is first row: {{ f }}, is last row:
+    {{ l }}
+  </div>
+
+  <b>even and odd variable demo </b>
+  <div *ngFor="let car of cars; let i = index; let e = even; let o = odd">
+    Row {{ i }} : Name: {{ car.name }}, is even row: {{ e }}, is odd row:
+    {{ o }}
+  </div>
+  <b>NgFor with Component Property Binding </b>
+  <emp-app *ngFor="let user of users" [emp]="user"> </emp-app>
+  <!-- <emp-app *ngFor="let car of cars" [emp]="car"> </emp-app> -->
+</div>
+
+<!----------------------------- NGFOR SECTION ENDS----------------------------->
+<hr />

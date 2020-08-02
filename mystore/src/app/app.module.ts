@@ -22,6 +22,12 @@ import { CustomCategoryNavigationComponent } from "./custom-category-navigation/
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
 import { CustomNavigationUIComponentComponent } from "./custom-navigation-uicomponent/custom-navigation-uicomponent.component";
 import { CustomProductCarouselComponent } from "./custom-product-carousel/custom-product-carousel.component";
+import { MouseActionDirective } from "./directives/attribute-directives/action-directive";
+import { StyleDirectives } from "./directives/attribute-directives/style-directives";
+import { DirectivesComponent } from "./directives/directives.component";
+import { EmpComponent } from "./directives/ng-directives/emp.component";
+import { NgDirectivesComponent } from "./directives/ng-directives/ng-directives.component";
+import { DelayDirective } from "./directives/structural-directives/structural-delay-directive";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
 
 @NgModule({
@@ -31,6 +37,12 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     SpartacusHeroBannerComponent,
     CustomCategoryNavigationComponent,
     CustomLoginFormComponent,
+    DirectivesComponent,
+    DelayDirective,
+    StyleDirectives,
+    MouseActionDirective,
+    NgDirectivesComponent,
+    EmpComponent,
     CustomNavigationUIComponentComponent,
     BindingComponent,
     EventEmitComponent,
@@ -82,6 +94,7 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     NavigationModule,
     ReactiveFormsModule,
     UrlModule,
+    FormsModule,
     IconModule,
     GenericLinkModule,
     I18nModule,
@@ -92,7 +105,10 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
         path: "binding", // url '/binding'
         component: BindingComponent,
       },
-
+      {
+        path: "directives", // url will be 'https://localhost:4200/directives'
+        component: DirectivesComponent,
+      },
       {
         path: "",
         redirectTo: "/",
