@@ -44,7 +44,6 @@ export class CustomProductCarouselComponent {
     protected componentData: CmsComponentData<model>,
     protected productService: ProductService
   ) {
-
   }
 
 
