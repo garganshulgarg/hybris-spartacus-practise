@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
   BrowserModule,
   BrowserTransferStateModule,
@@ -16,6 +16,8 @@ import {
   NavigationModule,
 } from "@spartacus/storefront";
 import { AppComponent } from "./app.component";
+import { BindingComponent } from "./binding-component/binding.component";
+import { EventEmitComponent } from "./binding-component/event-emit/event-emit.component";
 import { CustomCategoryNavigationComponent } from "./custom-category-navigation/custom-category-navigation.component";
 import { CustomLoginFormComponent } from "./custom-login-form/custom-login-form.component";
 import { CustomNavigationUIComponentComponent } from "./custom-navigation-uicomponent/custom-navigation-uicomponent.component";
@@ -30,6 +32,8 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     CustomCategoryNavigationComponent,
     CustomLoginFormComponent,
     CustomNavigationUIComponentComponent,
+    BindingComponent,
+    EventEmitComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -81,6 +85,20 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     IconModule,
     GenericLinkModule,
     I18nModule,
+    FormsModule,
+    RouterModule.forRoot([
+      //register route component
+      {
+        path: "binding", // url '/binding'
+        component: BindingComponent,
+      },
+
+      {
+        path: "",
+        redirectTo: "/",
+        pathMatch: "full",
+      },
+    ]),
   ],
   entryComponents: [
     CustomProductCarouselComponent,
