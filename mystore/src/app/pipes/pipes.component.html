@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Pipe Operator</h2>
+  <b>1. uppercase </b>
+  <p>{{ message | uppercase }}</p>
+  <p>{{ company.owner.name | uppercase }}</p>
+
+  <b>2. lowercase </b>
+  <p>{{ message | lowercase }}</p>
+
+  <b>3. date:'fullDate' </b>
+  <p>{{ person.dob | date: "fullDate" }}</p>
+
+  <b>4. Pipe Chaining </b>
+  <p>{{ person.dob | date: "fullDate" | uppercase }}</p>
+
+  <b> 5. json </b>
+  <p>{{ company | json }}</p>
+
+  <b> 6. currency </b>
+  <p>{{ cur | currency: "USD":true:"2.2-4" }}</p>
+  <!-- currencycode,symbolDisplay,minIntegerDigits,minFractionDigits,maxFractionDigits-->
+  <b> 7. Percent </b>
+  <p>{{ num | percent: "1.2-5" }}</p>
+
+  <b> 8. Decimal </b>
+  <p>{{ num | number: "3.2-5" }}</p>
+
+  <b> 9. Slice </b>
+  <p>{{ myStr | slice: 3:7 }}</p>
+  <!-- starting from index 3 and will include all characters before index 7-->
+  <p>{{ myStr | slice: 3:-2 }}</p>
+  <!--from left index starts from 0, from right index starts from -1-->
+</div>

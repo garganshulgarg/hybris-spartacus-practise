@@ -29,6 +29,7 @@ import { EmpComponent } from "./directives/ng-directives/emp.component";
 import { NgDirectivesComponent } from "./directives/ng-directives/ng-directives.component";
 import { DelayDirective } from "./directives/structural-directives/structural-delay-directive";
 import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-hero-banner.component";
+import { PipesComponent } from "./pipes/pipes.component";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
     CustomNavigationUIComponentComponent,
     BindingComponent,
     EventEmitComponent,
+    PipesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -88,6 +90,7 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
       },
     }),
     BrowserTransferStateModule,
+
     MediaModule,
     CarouselModule,
     RouterModule,
@@ -108,6 +111,10 @@ import { SpartacusHeroBannerComponent } from "./spartacus-hero-banner/spartacus-
       {
         path: "directives", // url will be 'https://localhost:4200/directives'
         component: DirectivesComponent,
+      },
+      {
+        path: "pipes", // url '/binding'
+        component: PipesComponent,
       },
       {
         path: "",
